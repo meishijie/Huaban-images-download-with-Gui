@@ -128,7 +128,7 @@ def get_huaban_beauty(pid):
             reg = re.compile('"pin_id":(.*?),.+?"file":\{"id":.+?"key":(.*?),.+?"type":"image\/(.*?)"', re.S)
             groups = re.findall(reg, html)
 
-            # print(len(groups))
+            print(len(groups))
             if len(groups) <= 0:
                 # changelabel('下载完成')
                 action.configure(text=name.get() + '下载完成！')     # 设置button显示的内容
@@ -154,7 +154,7 @@ def get_huaban_beauty(pid):
                     print img_url + ' download success!'
                 else:
                     print img_url + '.' + img_type + ' save failed'
-                return
+                
             # return
         except TypeError:
             print ' error occurs'
