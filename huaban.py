@@ -128,7 +128,6 @@ def get_huaban_beauty(pid):
             reg = re.compile('"pin_id":(.*?),.+?"file":\{"id":.+?"key":(.*?),.+?"type":"image\/(.*?)"', re.S)
             groups = re.findall(reg, html)
 
-            print(len(groups))
             if len(groups) <= 0:
                 # changelabel('下载完成')
                 action.configure(text=name.get() + '下载完成！')     # 设置button显示的内容
@@ -147,15 +146,15 @@ def get_huaban_beauty(pid):
                 att_url = att[1][1:-1]
                 img_type = att[2]
                 img_url = 'http://img.hb.aicdn.com/' + att_url
+                print txtid[len(txtid) - 1]
                 if len(txtid) > 0:
                     if pin_id == txtid[len(txtid) - 1]:
+                        changelabel('结束')
                         return
                 if urllib.urlretrieve(img_url, GPATH + '/' + board_id + '/' + att_url + '.' + img_type):
                     print img_url + ' download success!'
                 else:
                     print img_url + '.' + img_type + ' save failed'
-                
-            # return
         except TypeError:
             print ' error occurs'
 
@@ -178,7 +177,6 @@ def clickme():
     action.configure(text=name.get() + '下载中，不要多次点击！')     # 设置button显示的内容
     action.configure(state='disabled')
     WIN.update()
-    time.sleep(1)
     get_huaban_beauty(name.get().strip())
 
 
