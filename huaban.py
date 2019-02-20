@@ -7,20 +7,22 @@ import re
 import sys
 import time
 import urllib
-import urllib2
-
-import tkFileDialog
+import urllib.request
+from tkinter.filedialog import askdirectory
 import tkinter as tk
-from Tkinter import *
+from tkinter import *
 from tkinter import ttk
 
-reload(sys)
+# reload(sys)
 
 global iid
 iid = '点击后等待下载'
 global GPATH
 GPATH = ''
+global downloaded
 
+global downloadedCount
+downloadedCount = 0
 
 # if(os.path.exists('beauty') == False):
 #     os.mkdir('beauty')
@@ -49,6 +51,13 @@ def text_read(filename):
     file.close()
     return content
 
+def callbackfunc():
+    print('ok')
+    # global downloadedCount
+    # downloadedCount += 1
+    # print('下载了：'+str(downloadedCount))
+    # global downloaded
+    # downloaded.set(str(downloadedCount))
 
 def get_huaban_beauty(pid):
     if(GPATH):
@@ -57,13 +66,13 @@ def get_huaban_beauty(pid):
     else:
         action.configure(state='normal')
         WIN.update()
-        print u'没有设置目录'
+        print('没有设置目录')
         return
 
     if pid is None or pid == '':
         action.configure(state='normal')
         WIN.update()
-        print u'none id'
+        # print u'none id'
         return
     pin_id = ''
     board_id = pid
@@ -77,33 +86,33 @@ def get_huaban_beauty(pid):
     limit = 20
     # 他默认允许的limit为100
     # changelabel(pid+'下载中')
-    url = 'http://huaban.com/boards/' + board_id + \
+    url = 'http://huabanpro.com/boards/' + board_id + \
         '/?max=' + maxid + '&limit=' + str(limit) + '&wfl=1'
     try:
         i_headers = {
             "User-Agent": "Mozilla/5.0 (WINdows NT 6.1; rv:2.0.1)Gecko/20100101 Firefox/4.0.1",
             "Connection": "keep-alive",
-            "Host": "huaban.com",
+            "Host": "huabanpro.com",
             "Accept": "application/json"
         }
-        req = urllib2.Request(url, headers=i_headers)
-        html = urllib2.urlopen(req).read()
-        # print html
+        req = urllib.request.Request(url, headers=i_headers)
+        html = urllib.request.urlopen(req).read().decode("utf-8")
+        # print ('内容',html)
         # reg = re.compile('"pin_id":(.*?),.+?"file":{"farm":"farm1", "bucket":"hbimg",.+?"key":"(.*?)",.+?"type":"image/(.*?)"', re.S)
+        # "pin_id":(.*?),.+?"file":\{"id":.+?"key":(.*?),.+?"type":"image\/(.*?)"
         reg = re.compile(
-            '"pin_id":(.*?),.+?"file":\{"id":.+?"key":(.*?),.+?"type":"image\/(.*?)"', re.S)
+            '"pin_id":(.*?),.+?"file_id":(.*?),.+?"file":\{.+?"key":(.*?),.+?"type":"image\/(.*?)"', re.S)
         groups = re.findall(reg, html)
-        firstid = groups[0][0]
-        # print(groups[0][0])
+        firstid = groups[0][0][1:-3]
+        print(firstid)
     except TypeError:
-        print u'error occurs'
+        print('地址错误')
     # print len(text_read('beauty/'+board_id+'/1.txt'))
-    txtid = text_read(GPATH + '/' + board_id + '/1.txt')
-
+    txtid=text_read(GPATH + '/' + board_id + '/1.txt')
     if len(text_read(GPATH + '/' + board_id + '/1.txt')) > 0:
         if txtid[len(txtid) - 1] == firstid:
             changelabel('没有新的图片')
-            print 'no refresh'
+            # print 'no refresh'
             return
         else:
             test_text = [firstid]
@@ -112,20 +121,22 @@ def get_huaban_beauty(pid):
     text_save(test_text, GPATH + '/' + board_id + '/1.txt')
     while board_id != None:
         # url = 'http://huaban.com/boards/31435061/?max=' + str(pin_id) + '&limit=' + str(limit) + '&wfl=1'
-        url = 'http://huaban.com/boards/' + board_id + \
+        url = 'http://huabanpro.com/boards/' + board_id + \
             '/?max=' + maxid + '&limit=' + str(limit) + '&wfl=1'
         try:
             i_headers = {
                 "User-Agent": "Mozilla/5.0 (WINdows NT 6.1; rv:2.0.1)Gecko/20100101 Firefox/4.0.1",
                 "Connection": "keep-alive",
-                "Host": "huaban.com",
+                "Host": "huabanpro.com",
                 "Accept": "application/json"
             }
-            req = urllib2.Request(url, headers=i_headers)
-            html = urllib2.urlopen(req).read()
-            # print html
+            req = urllib.request.Request(url, headers=i_headers)
+            html = urllib.request.urlopen(req).read().decode("utf-8")
+            # print (html)
             # reg = re.compile('"pin_id":(.*?),.+?"file":{"farm":"farm1", "bucket":"hbimg",.+?"key":"(.*?)",.+?"type":"image/(.*?)"', re.S)
-            reg = re.compile('"pin_id":(.*?),.+?"file":\{"id":.+?"key":(.*?),.+?"type":"image\/(.*?)"', re.S)
+            reg = re.compile(
+                '"pin_id":(.*?),.+?"file_id":(.*?),.+?"file":\{.+?"key":(.*?),.+?"type":"image\/(.*?)"',
+                re.S)
             groups = re.findall(reg, html)
 
             if len(groups) <= 0:
@@ -133,7 +144,8 @@ def get_huaban_beauty(pid):
                 action.configure(text=name.get() + '下载完成！')     # 设置button显示的内容
                 action.configure(state='normal')
                 WIN.update()
-                print u'图片下载完毕！' # 图片下载完毕
+                # downloaded.set('图片下载完毕！')
+                # print ('图片下载完毕！') # 图片下载完毕
                 return
             maxid = groups[len(groups) - 1][0]
             if nowid == maxid:
@@ -142,21 +154,27 @@ def get_huaban_beauty(pid):
                 nowid = maxid
 
             for att in groups:
-                pin_id = att[0]
-                att_url = att[1][1:-1]
-                img_type = att[2]
+                pin_id = att[0][1:-3]
+                att_url = att[2][1:-1]
+                img_type = att[3]
                 img_url = 'http://img.hb.aicdn.com/' + att_url
-                print txtid[len(txtid) - 1]
+                # print txtid[len(txtid) - 1]
                 if len(txtid) > 0:
                     if pin_id == txtid[len(txtid) - 1]:
                         changelabel('结束')
                         return
-                if urllib.urlretrieve(img_url, GPATH + '/' + board_id + '/' + att_url + '.' + img_type):
-                    print img_url + ' download success!'
+                # urllib.request.urlretrieve(img_url, GPATH + '/' + board_id + '/' + att_url + '.' + img_type, callbackfunc)
+                if urllib.request.urlretrieve(img_url, GPATH + '/' + board_id + '/' + att_url + '.' + img_type):
+                    global downloadedCount
+                    downloadedCount += 1
+                    print('下载了：'+str(downloadedCount))
+                    global downloaded
+                    downloaded.set(str(downloadedCount))
+                    print (img_url + ' download success!')
                 else:
-                    print img_url + '.' + img_type + ' save failed'
+                    print (img_url + '.' + img_type + ' save failed')
         except TypeError:
-            print ' error occurs'
+            print (' error occurs')
 
 # GUI界面开始
 WIN = tk.Tk()
@@ -171,6 +189,7 @@ FRAME.grid(row=1, column=0, sticky=N + S, padx=100, pady=100)
 
 FRAME.propagate(0)  # 使组件大小不变，此时width才起作用
 
+downloaded = StringVar()
 
 def clickme():
     """   # 当acction被点击时,该函数则生效"""
@@ -184,7 +203,7 @@ def clickme1():
     """   # 当选择目录acction被点击时,该函数则生效"""
     global GPATH
     GPATH = ''
-    path = tkFileDialog.askdirectory()
+    path = askdirectory()
     if path:
         GPATH = path
         nameEntered1.delete(0, END)
@@ -216,6 +235,7 @@ nameEntered.grid(column=0, row=1)
 nameEntered1 = ttk.Entry(FRAME, width=50)
 nameEntered1.grid(column=0, row=2)
 
+ttk.Label(FRAME, textvariable=downloaded).grid(column=0, row=3)
 WIN.mainloop()      # 当调用mainloop()时,窗口才会显示出来
 
 # mainRun()
