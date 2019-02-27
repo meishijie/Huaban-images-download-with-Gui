@@ -154,6 +154,7 @@ def get_huaban_beauty(pid):
         reg = re.compile(
             '"pin_id":(.*?),.+?"file_id":(.*?),.+?"file":\{.+?"key":(.*?),.+?"type":"image\/(.*?)"', re.S)
         groups = re.findall(reg, html)
+        print("当前是"+str(groups))
         firstid = groups[0][0][1:-3]
     except TypeError:
         print('地址错误')
