@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb5e2fbf-382b-4194-896c-5466c946b65f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/huabans.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/huaban/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/huaban/Analysis-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/huaban/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/huaban/EXE-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/huaban/PKG-00.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/build/huaban/PKG-00.pkg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/huaban/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/huaban/PKG-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/huaban/PYZ-00.pyz" beforeDir="false" afterPath="$PROJECT_DIR$/build/huaban/PYZ-00.pyz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/huaban/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/huaban/PYZ-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/huaban/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/huaban/base_library.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/huaban/huaban.exe.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/build/huaban/huaban.exe.manifest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/huaban/warn-huaban.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/huaban/warn-huaban.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/huaban.exe" beforeDir="false" afterPath="$PROJECT_DIR$/dist/huaban.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaban.py" beforeDir="false" afterPath="$PROJECT_DIR$/huaban.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huabans.py" beforeDir="false" afterPath="$PROJECT_DIR$/huabans.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,11 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/huaban.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
+            <state relative-caret-position="3180">
               <caret line="223" column="16" selection-start-line="223" selection-start-column="16" selection-end-line="223" selection-end-column="16" />
-              <folding>
-                <element signature="e#49#58#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -44,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/huabans.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="199" column="28" lean-forward="true" selection-start-line="199" selection-start-column="28" selection-end-line="199" selection-end-column="28" />
+            <state relative-caret-position="-390">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
               <folding>
                 <element signature="e#49#58#0" expanded="true" />
               </folding>
@@ -220,16 +204,18 @@
       <workItem from="1550656828579" duration="647000" />
       <workItem from="1551168418347" duration="270000" />
       <workItem from="1551230287772" duration="9578000" />
+      <workItem from="1551252247305" duration="1405000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23700000" />
+    <option name="totallyTimeSpent" value="25105000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11886994" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.119936034" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -302,18 +288,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/huaban.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
+        <state relative-caret-position="3180">
           <caret line="223" column="16" selection-start-line="223" selection-start-column="16" selection-end-line="223" selection-end-column="16" />
-          <folding>
-            <element signature="e#49#58#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/huabans.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="199" column="28" lean-forward="true" selection-start-line="199" selection-start-column="28" selection-end-line="199" selection-end-column="28" />
+        <state relative-caret-position="-390">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
           <folding>
             <element signature="e#49#58#0" expanded="true" />
           </folding>

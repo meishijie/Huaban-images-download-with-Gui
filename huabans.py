@@ -151,14 +151,10 @@ def get_huaban_beauty(pid):
         }
         req = urllib.request.Request(url, headers=i_headers)
         html = urllib.request.urlopen(req).read().decode("utf-8")
-        # print ('内容',html)
-        # reg = re.compile('"pin_id":(.*?),.+?"file":{"farm":"farm1", "bucket":"hbimg",.+?"key":"(.*?)",.+?"type":"image/(.*?)"', re.S)
-        # "pin_id":(.*?),.+?"file":\{"id":.+?"key":(.*?),.+?"type":"image\/(.*?)"
         reg = re.compile(
             '"pin_id":(.*?),.+?"file_id":(.*?),.+?"file":\{.+?"key":(.*?),.+?"type":"image\/(.*?)"', re.S)
         groups = re.findall(reg, html)
         firstid = groups[0][0][1:-3]
-        print(firstid)
     except TypeError:
         print('地址错误')
     # print len(text_read('beauty/'+board_id+'/1.txt'))
