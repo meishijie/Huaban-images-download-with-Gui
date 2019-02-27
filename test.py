@@ -31,13 +31,13 @@ nowid = ''
 limit = 20
 # 他默认允许的limit为100
 # changelabel(pid+'下载中')
-url = 'http://huabanpro.com/boards/' + board_id + \
+url = 'http://huaban.com/boards/' + board_id + \
     '/?max=' + maxid + '&limit=' + str(limit) + '&wfl=1'
 
 i_headers = {
     "User-Agent": "Mozilla/5.0 (WINdows NT 6.1; rv:2.0.1)Gecko/20100101 Firefox/4.0.1",
     "Connection": "keep-alive",
-    "Host": "huabanpro.com",
+    "Host": "huaban.com",
     "Accept": "application/json"
 }
 req = urllib.request.Request(url, headers=i_headers)

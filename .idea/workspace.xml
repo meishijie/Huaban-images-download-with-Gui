@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb5e2fbf-382b-4194-896c-5466c946b65f" name="Default Changelist" comment="" />
+    <list default="true" id="eb5e2fbf-382b-4194-896c-5466c946b65f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/huabans.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/huaban/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/huaban/Analysis-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/huaban/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/huaban/EXE-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/huaban/PKG-00.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/build/huaban/PKG-00.pkg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/huaban/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/huaban/PKG-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/huaban/PYZ-00.pyz" beforeDir="false" afterPath="$PROJECT_DIR$/build/huaban/PYZ-00.pyz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/huaban/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/huaban/PYZ-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/huaban/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/huaban/base_library.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/huaban/huaban.exe.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/build/huaban/huaban.exe.manifest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/huaban/warn-huaban.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/huaban/warn-huaban.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/huaban.exe" beforeDir="false" afterPath="$PROJECT_DIR$/dist/huaban.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huaban.py" beforeDir="false" afterPath="$PROJECT_DIR$/huaban.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,15 +24,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Huaban_images_download_with_Gui$huaban.coverage" NAME="huaban Coverage Results" MODIFIED="1550656856040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Huaban_images_download_with_Gui$huaban.coverage" NAME="huaban Coverage Results" MODIFIED="1551246685864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Huaban_images_download_with_Gui$huabans.coverage" NAME="huabans Coverage Results" MODIFIED="1551250080333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/huaban.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="137" column="102" lean-forward="true" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="102" />
+            <state relative-caret-position="304">
+              <caret line="223" column="16" selection-start-line="223" selection-start-column="16" selection-end-line="223" selection-end-column="16" />
               <folding>
                 <element signature="e#49#58#0" expanded="true" />
               </folding>
@@ -25,23 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysetup.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="2" column="22" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test.py">
+        <entry file="file://$PROJECT_DIR$/huabans.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="47" column="12" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="12" />
+            <state relative-caret-position="94">
+              <caret line="199" column="28" lean-forward="true" selection-start-line="199" selection-start-column="28" selection-end-line="199" selection-end-column="28" />
               <folding>
                 <element signature="e#49#58#0" expanded="true" />
               </folding>
@@ -70,7 +74,6 @@
       <find>233896310</find>
       <find>2196552922</find>
       <find>error occurs</find>
-      <find>txtid</find>
       <find>firstid</find>
       <find>&quot;pin_id&quot;:(.*?),.+?&quot;file_id&quot;:(.*?),.+?&quot;file&quot;:\{&quot;bucket&quot;:&quot;hbimg&quot;,.+?&quot;key&quot;:(.*?),.+?&quot;type&quot;:&quot;image\/(.*?)&quot;</find>
       <find>&quot;pin_id&quot;:(.*?),.+?&quot;file_id&quot;:(.*?),.+?&quot;file&quot;:\{&quot;bucket&quot;:&quot;hbimg&quot;,.+?&quot;key&quot;:(.*?),.+?&quot;type&quot;:&quot;image\/(.*?)&quot;,</find>
@@ -78,6 +81,18 @@
       <find>&quot;pin_id&quot;:(.*?),.+?&quot;file_id&quot;:(.*?),.+?&quot;file&quot;:\{.+?&quot;key&quot;:(.*?),.+?&quot;type&quot;:&quot;image\/(.*?)&quot;,</find>
       <find>downloaded</find>
       <find>callbackfunc</find>
+      <find>huabanpro</find>
+      <find>action</find>
+      <find>name</find>
+      <find>groups</find>
+      <find>pin_id</find>
+      <find>board_id</find>
+      <find>txtid</find>
+      <find>结束</find>
+      <find>jindu</find>
+      <find>limit</find>
+      <find>maxid</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -89,6 +104,7 @@
         <option value="$PROJECT_DIR$/mysetup.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/huaban.py" />
+        <option value="$PROJECT_DIR$/huabans.py" />
       </list>
     </option>
   </component>
@@ -97,6 +113,9 @@
     <option name="y" value="42" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -119,7 +138,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/huaban.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/huabans.py" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -135,7 +154,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.huabans">
     <configuration name="huaban" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Huaban-images-download-with-Gui" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -158,6 +177,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="huabans" type="PythonConfigurationType" factoryName="Python">
+      <module name="Huaban-images-download-with-Gui" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Users\higou\Anaconda3\envs\python3.5\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/huabans.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.huaban" />
+      <item itemvalue="Python.huabans" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -173,21 +218,23 @@
       <workItem from="1550641243736" duration="7415000" />
       <workItem from="1550648689661" duration="365000" />
       <workItem from="1550656828579" duration="647000" />
+      <workItem from="1551168418347" duration="270000" />
+      <workItem from="1551230287772" duration="9578000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13852000" />
+    <option name="totallyTimeSpent" value="23700000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18496802" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11886994" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33188722" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.30694142" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -226,10 +273,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/huaban.py">
+    <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="137" column="102" lean-forward="true" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="102" />
+        <state relative-caret-position="210">
+          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
           <folding>
             <element signature="e#49#58#0" expanded="true" />
           </folding>
@@ -246,10 +293,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
+    <entry file="file://$PROJECT_DIR$/../../Anaconda3/envs/python3.5/Lib/urllib/request.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="47" column="12" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="12" />
+        <state relative-caret-position="342">
+          <caret line="169" column="46" selection-start-line="169" selection-start-column="36" selection-end-line="169" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/huaban.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="223" column="16" selection-start-line="223" selection-start-column="16" selection-end-line="223" selection-end-column="16" />
+          <folding>
+            <element signature="e#49#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/huabans.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="199" column="28" lean-forward="true" selection-start-line="199" selection-start-column="28" selection-end-line="199" selection-end-column="28" />
           <folding>
             <element signature="e#49#58#0" expanded="true" />
           </folding>

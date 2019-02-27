@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- encoding:utf-8 -*-
-
+'''
+老版本的下载
+'''
 
 import os
 import re
@@ -12,9 +14,12 @@ from tkinter.filedialog import askdirectory
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk
+import socket
+import threading
 
 # reload(sys)
-
+global allcount
+allcount = 0
 global iid
 iid = '点击后等待下载'
 global GPATH
@@ -23,6 +28,7 @@ global downloaded
 
 global downloadedCount
 downloadedCount = 0
+
 
 # if(os.path.exists('beauty') == False):
 #     os.mkdir('beauty')
@@ -51,6 +57,7 @@ def text_read(filename):
     file.close()
     return content
 
+
 def callbackfunc():
     print('ok')
     # global downloadedCount
@@ -59,9 +66,54 @@ def callbackfunc():
     # global downloaded
     # downloaded.set(str(downloadedCount))
 
+
+# 下载方法
+def auto_down(url, filename):
+    try:
+        urllib.request.urlretrieve(url, filename, jindu)
+    except socket.timeout:
+        count = 1
+        while count <= 15:
+            try:
+                urllib.request.urlretrieve(url, filename, jindu)
+                break
+            except socket.timeout:
+                err_info = 'Reloading for %d time' % count if count == 1 else 'Reloading for %d times' % count
+                print(err_info)
+                count += 1
+        if count > 15:
+            print("下载失败")
+
+
+# urlretrieve()的回调函数，显示当前的下载进度
+# a为已经下载的数据块
+# b为数据块大小
+# c为远程文件的大小
+global myper
+
+def jindu(a, b, c):
+    if not a:
+        print(a)
+    if c < 0:
+        print("要下载的文件大小为0")
+    else:
+        global myper, allcount
+        per = 100 * a * b / c
+
+        if per > 100:
+            per = 100
+        myper = per
+        # print("当前下载进度为：" + '%.2f%%' % per)
+    if per == 100:
+
+        allcount +=1
+        downloaded.set(str(allcount) + '下载完成！')
+        return True
+
+
 def get_huaban_beauty(pid):
-    if(GPATH):
-        if(os.path.exists(GPATH) == False):
+    if (GPATH):
+        if (os.path.exists(GPATH) == False):
             os.mkdir(GPATH)
     else:
         action.configure(state='normal')
@@ -86,13 +138,13 @@ def get_huaban_beauty(pid):
     limit = 20
     # 他默认允许的limit为100
     # changelabel(pid+'下载中')
-    url = 'http://huabanpro.com/boards/' + board_id + \
-        '/?max=' + maxid + '&limit=' + str(limit) + '&wfl=1'
+    url = 'http://huaban.com/boards/' + board_id + \
+          '/?max=' + maxid + '&limit=' + str(limit) + '&wfl=1'
     try:
         i_headers = {
             "User-Agent": "Mozilla/5.0 (WINdows NT 6.1; rv:2.0.1)Gecko/20100101 Firefox/4.0.1",
             "Connection": "keep-alive",
-            "Host": "huabanpro.com",
+            "Host": "huaban.com",
             "Accept": "application/json"
         }
         req = urllib.request.Request(url, headers=i_headers)
@@ -108,7 +160,7 @@ def get_huaban_beauty(pid):
     except TypeError:
         print('地址错误')
     # print len(text_read('beauty/'+board_id+'/1.txt'))
-    txtid=text_read(GPATH + '/' + board_id + '/1.txt')
+    txtid = text_read(GPATH + '/' + board_id + '/1.txt')
     if len(text_read(GPATH + '/' + board_id + '/1.txt')) > 0:
         if txtid[len(txtid) - 1] == firstid:
             changelabel('没有新的图片')
@@ -121,13 +173,13 @@ def get_huaban_beauty(pid):
     text_save(test_text, GPATH + '/' + board_id + '/1.txt')
     while board_id != None:
         # url = 'http://huaban.com/boards/31435061/?max=' + str(pin_id) + '&limit=' + str(limit) + '&wfl=1'
-        url = 'http://huabanpro.com/boards/' + board_id + \
-            '/?max=' + maxid + '&limit=' + str(limit) + '&wfl=1'
+        url = 'http://huaban.com/boards/' + board_id + \
+              '/?max=' + maxid + '&limit=' + str(limit) + '&wfl=1'
         try:
             i_headers = {
                 "User-Agent": "Mozilla/5.0 (WINdows NT 6.1; rv:2.0.1)Gecko/20100101 Firefox/4.0.1",
                 "Connection": "keep-alive",
-                "Host": "huabanpro.com",
+                "Host": "huaban.com",
                 "Accept": "application/json"
             }
             req = urllib.request.Request(url, headers=i_headers)
@@ -141,7 +193,7 @@ def get_huaban_beauty(pid):
 
             if len(groups) <= 0:
                 # changelabel('下载完成')
-                action.configure(text=name.get() + '下载完成！')     # 设置button显示的内容
+                action.configure(text=name.get() + '下载完成！')  # 设置button显示的内容
                 action.configure(state='normal')
                 WIN.update()
                 # downloaded.set('图片下载完毕！')
@@ -164,21 +216,28 @@ def get_huaban_beauty(pid):
                         changelabel('结束')
                         return
                 # urllib.request.urlretrieve(img_url, GPATH + '/' + board_id + '/' + att_url + '.' + img_type, callbackfunc)
-                if urllib.request.urlretrieve(img_url, GPATH + '/' + board_id + '/' + att_url + '.' + img_type):
-                    global downloadedCount
-                    downloadedCount += 1
-                    print('下载了：'+str(downloadedCount))
-                    global downloaded
-                    downloaded.set(str(downloadedCount))
-                    print (img_url + ' download success!')
-                else:
-                    print (img_url + '.' + img_type + ' save failed')
+                # th = threading.Thread(target=urllib.request.urlretrieve,
+                #                       args=(img_url, GPATH + '/' + board_id + '/' + att_url + '.' + img_type,jindu,))
+                # th.setDaemon(True)  # 守护线程
+                # th.start()
+
+                auto_down(img_url, GPATH + '/' + board_id + '/' + att_url + '.' + img_type)
+                # if urllib.request.urlretrieve(img_url, GPATH + '/' + board_id + '/' + att_url + '.' + img_type):
+                #     global downloadedCount
+                #     downloadedCount += 1
+                #     print('下载了：'+str(downloadedCount))
+                #     global downloaded
+                #     downloaded.set(str(downloadedCount))
+                #     print (img_url + ' 下载成功!')
+                # else:
+                #     print (img_url + '.' + img_type + ' save failed')
         except TypeError:
-            print (' error occurs')
+            print(' error occurs')
+
 
 # GUI界面开始
 WIN = tk.Tk()
-WIN.title("花瓣画板图片下载")    # 添加标题
+WIN.title("花瓣画板图片下载")  # 添加标题
 # FRAME = FRAME(WIN, width=200,height = 500)
 #
 # FRAME.pack()
@@ -190,10 +249,12 @@ FRAME.grid(row=1, column=0, sticky=N + S, padx=100, pady=100)
 FRAME.propagate(0)  # 使组件大小不变，此时width才起作用
 
 downloaded = StringVar()
+downloaded.set('')
+
 
 def clickme():
     """   # 当acction被点击时,该函数则生效"""
-    action.configure(text=name.get() + '下载中，不要多次点击！')     # 设置button显示的内容
+    action.configure(text=name.get() + '下载中，不要多次点击！')  # 设置button显示的内容
     action.configure(state='disabled')
     WIN.update()
     get_huaban_beauty(name.get().strip())
@@ -212,9 +273,10 @@ def clickme1():
 
 def changelabel(labelname):
     """改变标题"""
-    action.configure(text=name.get() + labelname)     # 设置button显示的内容
+    action.configure(text=name.get() + labelname)  # 设置button显示的内容
     action.configure(state='normal')
     WIN.update()
+
 
 # 创建一个按钮, text：显示按钮上面显示的文字, command：当这个按钮被点击之后会调用command函数
 action = ttk.Button(FRAME, text=iid, command=clickme)
@@ -236,6 +298,6 @@ nameEntered1 = ttk.Entry(FRAME, width=50)
 nameEntered1.grid(column=0, row=2)
 
 ttk.Label(FRAME, textvariable=downloaded).grid(column=0, row=3)
-WIN.mainloop()      # 当调用mainloop()时,窗口才会显示出来
+WIN.mainloop()  # 当调用mainloop()时,窗口才会显示出来
 
 # mainRun()
