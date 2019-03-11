@@ -137,6 +137,7 @@ def get_huaban_beauty(pid):
     txtid = ''
     firstid = ''
     nowid = ''
+    allcount = 0
     limit = 20
     # 他默认允许的limit为100
     # changelabel(pid+'下载中')
