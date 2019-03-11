@@ -105,7 +105,7 @@ def jindu(a, b, c):
         myper = per
         # print("当前下载进度为：" + '%.2f%%' % per)
     if per == 100:
-
+        global allcount
         allcount +=1
         downloaded.set(str(allcount) + '下载完成！')
         return True
@@ -137,6 +137,9 @@ def get_huaban_beauty(pid):
     txtid = ''
     firstid = ''
     nowid = ''
+    global downloadedCount
+    downloadedCount = 0
+    global allcount
     allcount = 0
     limit = 20
     # 他默认允许的limit为100
